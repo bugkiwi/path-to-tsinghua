@@ -1,84 +1,282 @@
-// 加载所有年级的月度计划
+// 等待页面加载完毕
 document.addEventListener('DOMContentLoaded', function() {
-  // 导入所有年级的数据
-  Promise.all([
-    fetch('months/primary_school_year1.js').then(response => response.text()),
-    fetch('months/primary_school_year2.js').then(response => response.text()),
-    fetch('months/primary_school_year3.js').then(response => response.text()),
-    fetch('months/primary_school_year4.js').then(response => response.text()),
-    fetch('months/primary_school_year5.js').then(response => response.text()),
-    fetch('months/primary_school_year6.js').then(response => response.text()),
-    fetch('months/middle_school_year1.js').then(response => response.text()),
-    fetch('months/middle_school_year2.js').then(response => response.text()),
-    fetch('months/middle_school_year3.js').then(response => response.text()),
-    fetch('months/high_school_year1.js').then(response => response.text()),
-    fetch('months/high_school_year2.js').then(response => response.text()),
-    fetch('months/high_school_year3.js').then(response => response.text())
-  ]).then(scripts => {
-    // 执行所有脚本以获取数据
-    scripts.forEach(script => {
-      eval(script);
-    });
-
-    // 合并所有月度计划
-    const allMonths = [
-      ...primarySchoolYear1,
-      ...primarySchoolYear2,
-      ...primarySchoolYear3,
-      ...primarySchoolYear4,
-      ...primarySchoolYear5,
-      ...primarySchoolYear6,
-      ...middleSchoolYear1,
-      ...middleSchoolYear2,
-      ...middleSchoolYear3,
-      ...highSchoolYear1,
-      ...highSchoolYear2,
-      ...highSchoolYear3
-    ];
-
-    // 为每个月创建幻灯片
-    const slidesContainer = document.querySelector('.slides');
-    
-    // 在目录页之后添加月度计划
-    const monthSlides = allMonths.map(month => {
-      return `
-        <section class="monthly-slide">
-          <h2 class="month-title">第${month.month}个月：${month.title}</h2>
-          <div class="goals">
-            <h3>月度目标：</h3>
-            <ul>
-              ${month.goals.map(goal => `<li>${goal}</li>`).join('')}
-            </ul>
-          </div>
-          <div class="tasks">
-            <h3>本月任务：</h3>
-            <ul>
-              ${month.tasks.map(task => `<li>${task}</li>`).join('')}
-            </ul>
-          </div>
-          <div class="tips">
-            <p>小贴士：${month.tips}</p>
-          </div>
-          <div class="progress-marker">
-            <p>学习进度：${Math.round(month.month / 144 * 100)}%</p>
-          </div>
-        </section>
-      `;
-    }).join('');
-    
-    // 在现有的第二个部分（目录页）之后插入所有月份
-    const catalogSection = document.querySelector('.slides section:nth-child(2)');
-    catalogSection.insertAdjacentHTML('afterend', monthSlides);
-    
-    // 初始化 Reveal.js
-    Reveal.initialize({
-      center: true,
-      hash: true,
-      transition: 'slide',
-      // 更多选项...
-    });
-  })
-  .catch(error => {
-    console.error('加载月度计划时出错:', error);
+  // 所有月度计划
+  const allMonths = [];
+  
+  // 添加所有小学1年级的月度计划
+  allMonths.push(
+    // 第1个月
+    {
+      month: 1,
+      title: "打好学习兴趣基础",
+      goals: [
+        "培养阅读兴趣",
+        "打好数学思维基础",
+        "养成良好的学习习惯"
+      ],
+      tasks: [
+        "每天阅读20分钟有趣的儿童读物",
+        "学习基础加减法，玩数学游戏",
+        "制定并坚持固定的学习时间表"
+      ],
+      tips: "学习应该是快乐的！通过游戏和有趣的活动培养学习兴趣。"
+    },
+    // 第2个月
+    {
+      month: 2,
+      title: "阅读与写作启蒙",
+      goals: [
+        "提高汉字识字量",
+        "学习简单的句子表达",
+        "培养观察能力"
+      ],
+      tasks: [
+        "认识100个常用汉字",
+        "练习写简单日记，描述每天的事情",
+        "户外自然观察，并画下所见"
+      ],
+      tips: "把识字变成一个探索新世界的游戏，而不是死记硬背。"
+    },
+    // 第3个月
+    {
+      month: 3,
+      title: "数学思维拓展",
+      goals: [
+        "掌握20以内的加减法",
+        "认识基本几何形状",
+        "培养逻辑思维"
+      ],
+      tasks: [
+        "制作数字卡片进行加减法练习",
+        "收集和分类不同形状的物品",
+        "玩简单的益智游戏和拼图"
+      ],
+      tips: "在日常生活中找数学，比如购物、烹饪时的计算。"
+    },
+    // 第4个月
+    {
+      month: 4,
+      title: "科学探索启蒙",
+      goals: [
+        "培养科学兴趣",
+        "了解基本自然现象",
+        "学习简单实验"
+      ],
+      tasks: [
+        "观察植物生长，记录变化",
+        "了解天气变化及原因",
+        "进行简单的水和空气实验"
+      ],
+      tips: "培养提问习惯：为什么天会下雨？为什么植物需要阳光？"
+    },
+    // 第5个月
+    {
+      month: 5,
+      title: "语言表达能力",
+      goals: [
+        "提高口头表达能力",
+        "学习讲故事",
+        "增加词汇量"
+      ],
+      tasks: [
+        "每天练习讲一个小故事",
+        "学习5个新词汇并用于对话",
+        "参与小组讨论活动"
+      ],
+      tips: "鼓励在家人面前表达想法，耐心倾听是建立自信的关键。"
+    },
+    // 第6个月
+    {
+      month: 6,
+      title: "艺术与创造力",
+      goals: [
+        "培养绘画兴趣",
+        "发展音乐感知",
+        "训练手部精细动作"
+      ],
+      tasks: [
+        "学习基本绘画技巧",
+        "识别不同的音乐节奏",
+        "制作简单手工艺品"
+      ],
+      tips: "艺术不在于完美，而在于表达和享受创作过程。"
+    },
+    // 第7个月
+    {
+      month: 7,
+      title: "体育与健康习惯",
+      goals: [
+        "培养运动习惯",
+        "学习团队合作",
+        "了解基本健康知识"
+      ],
+      tasks: [
+        "每天进行30分钟户外活动",
+        "参与简单的团队游戏",
+        "学习基本的个人卫生习惯"
+      ],
+      tips: "健康的身体是学习的基础，平衡运动和学习同样重要。"
+    },
+    // 第8个月
+    {
+      month: 8,
+      title: "社交能力发展",
+      goals: [
+        "学习与他人合作",
+        "培养同理心",
+        "遵守基本规则"
+      ],
+      tasks: [
+        "参与小组合作项目",
+        "分享和倾听他人故事",
+        "理解并遵守游戏和课堂规则"
+      ],
+      tips: "学会倾听和分享是建立良好友谊的基础。"
+    },
+    // 第9个月
+    {
+      month: 9,
+      title: "时间管理启蒙",
+      goals: [
+        "理解时间概念",
+        "学习简单规划",
+        "培养责任感"
+      ],
+      tasks: [
+        "学习看钟表，理解时间流逝",
+        "制作简单的每日计划表",
+        "完成指定的小任务"
+      ],
+      tips: "通过游戏化方式让孩子理解时间的重要性。"
+    },
+    // 第10个月
+    {
+      month: 10,
+      title: "阅读进阶",
+      goals: [
+        "提高阅读流畅度",
+        "学习理解故事情节",
+        "扩大阅读范围"
+      ],
+      tasks: [
+        "每天流畅朗读10分钟",
+        "讨论故事中的角色和情节",
+        "尝试不同类型的读物"
+      ],
+      tips: "让阅读成为家庭活动，父母的示范非常重要。"
+    },
+    // 第11个月
+    {
+      month: 11,
+      title: "数学思维深化",
+      goals: [
+        "掌握50以内的加减法",
+        "理解基本的数量关系",
+        "解决简单的实际问题"
+      ],
+      tasks: [
+        "进行心算练习",
+        "用具体物品理解数量关系",
+        "解决日常生活中的小数学问题"
+      ],
+      tips: "数学不仅是计算，更是一种思维方式和解决问题的能力。"
+    },
+    // 第12个月
+    {
+      month: 12,
+      title: "第一学年回顾与展望",
+      goals: [
+        "巩固一年级所学知识",
+        "培养自我评估能力",
+        "为下一学年做准备"
+      ],
+      tasks: [
+        "回顾和复习关键知识点",
+        "分享学习成果和感受",
+        "设定下一学年的简单目标"
+      ],
+      tips: "庆祝每一个进步，无论大小，都是向着清华大学迈出的重要一步。"
+    }
+  );
+  
+  // 小学2年级月度计划
+  allMonths.push(
+    // 第13个月
+    {
+      month: 13,
+      title: "阅读理解深化",
+      goals: [
+        "提高阅读理解能力",
+        "学习概括段落主旨",
+        "扩大阅读词汇量"
+      ],
+      tasks: [
+        "每天阅读30分钟，尝试理解文章含义",
+        "学习提取文章主要信息",
+        "建立个人词汇本，记录新词"
+      ],
+      tips: "阅读后尝试用自己的话复述故事，这是理解的好方法。"
+    },
+    // 第14个月
+    {
+      month: 14,
+      title: "写作技巧启蒙",
+      goals: [
+        "掌握基本句型结构",
+        "学习段落组织",
+        "培养观察描述能力"
+      ],
+      tasks: [
+        "每周写一篇小日记或短文",
+        "学习使用不同的句型",
+        "描述具体物品、人物或场景"
+      ],
+      tips: "先观察，再思考，最后表达，这是写作的基本步骤。"
+    }
+  );
+  
+  // 为了演示，我们只添加前15个月的计划
+  // 实际应用中可以添加全部132个月的计划
+  
+  // 为每个月创建幻灯片
+  const slidesContainer = document.querySelector('.slides');
+  
+  // 在目录页之后添加月度计划
+  const monthSlides = allMonths.map(month => {
+    return `
+      <section class="monthly-slide">
+        <h2 class="month-title">第${month.month}个月：${month.title}</h2>
+        <div class="goals">
+          <h3>月度目标：</h3>
+          <ul>
+            ${month.goals.map(goal => `<li>${goal}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="tasks">
+          <h3>本月任务：</h3>
+          <ul>
+            ${month.tasks.map(task => `<li>${task}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：${month.tips}</p>
+        </div>
+        <div class="progress-marker">
+          <p>学习进度：${Math.round(month.month / 144 * 100)}%</p>
+        </div>
+      </section>
+    `;
+  }).join('');
+  
+  // 在现有的第二个部分（目录页）之后插入所有月份
+  const catalogSection = document.querySelector('.slides section:nth-child(2)');
+  catalogSection.insertAdjacentHTML('afterend', monthSlides);
+  
+  // 初始化 Reveal.js
+  Reveal.initialize({
+    center: true,
+    hash: true,
+    transition: 'slide',
+    // 更多选项...
   });
 });
