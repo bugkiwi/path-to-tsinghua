@@ -111,6 +111,281 @@
       border-radius: 5px;
     }
   </style>
+  <!-- 直接内联数据，避免跨域问题 -->
+  <script>
+    // 小学1年级的月度学习计划 (共12个月)
+    const primarySchoolYear1 = [
+      {
+        month: 1,
+        title: "打好学习兴趣基础",
+        goals: [
+          "培养阅读兴趣",
+          "打好数学思维基础",
+          "养成良好的学习习惯"
+        ],
+        tasks: [
+          "每天阅读20分钟有趣的儿童读物",
+          "学习基础加减法，玩数学游戏",
+          "制定并坚持固定的学习时间表"
+        ],
+        tips: "学习应该是快乐的！通过游戏和有趣的活动培养学习兴趣。"
+      },
+      {
+        month: 2,
+        title: "阅读与写作启蒙",
+        goals: [
+          "提高汉字识字量",
+          "学习简单的句子表达",
+          "培养观察能力"
+        ],
+        tasks: [
+          "认识100个常用汉字",
+          "练习写简单日记，描述每天的事情",
+          "户外自然观察，并画下所见"
+        ],
+        tips: "把识字变成一个探索新世界的游戏，而不是死记硬背。"
+      },
+      {
+        month: 3,
+        title: "数学思维拓展",
+        goals: [
+          "掌握20以内的加减法",
+          "认识基本几何形状",
+          "培养逻辑思维"
+        ],
+        tasks: [
+          "制作数字卡片进行加减法练习",
+          "收集和分类不同形状的物品",
+          "玩简单的益智游戏和拼图"
+        ],
+        tips: "在日常生活中找数学，比如购物、烹饪时的计算。"
+      }
+    ];
+    
+    // 小学2年级的月度学习计划数据
+    const primarySchoolYear2 = [
+      {
+        month: 13,
+        title: "阅读理解深化",
+        goals: [
+          "提高阅读理解能力",
+          "学习概括段落主旨",
+          "扩大阅读词汇量"
+        ],
+        tasks: [
+          "每天阅读30分钟，尝试理解文章含义",
+          "学习提取文章主要信息",
+          "建立个人词汇本，记录新词"
+        ],
+        tips: "阅读后尝试用自己的话复述故事，这是理解的好方法。"
+      },
+      {
+        month: 14,
+        title: "写作技巧启蒙",
+        goals: [
+          "掌握基本句型结构",
+          "学习段落组织",
+          "培养观察描述能力"
+        ],
+        tasks: [
+          "每周写一篇小日记或短文",
+          "学习使用不同的句型",
+          "描述具体物品、人物或场景"
+        ],
+        tips: "先观察，再思考，最后表达，这是写作的基本步骤。"
+      }
+    ];
+    
+    // 小学3年级的月度学习计划
+    const primarySchoolYear3 = [
+      {
+        month: 25,
+        title: "阅读理解策略",
+        goals: [
+          "掌握主动阅读技巧",
+          "提高推断能力",
+          "培养批判性思考"
+        ],
+        tasks: [
+          "使用SQ3R阅读法(浏览、提问、阅读、复述、复习)",
+          "练习从文本中找出隐含信息",
+          "质疑和评价所读内容"
+        ],
+        tips: "阅读前先浏览全文，提出问题，阅读时寻找答案，这样记忆更深刻。"
+      }
+    ];
+    
+    // 小学4年级的月度学习计划
+    const primarySchoolYear4 = [
+      {
+        month: 37,
+        title: "深度阅读策略",
+        goals: [
+          "培养精读能力",
+          "训练批判性阅读",
+          "学习做有效笔记"
+        ],
+        tasks: [
+          "选择经典书籍进行深度阅读",
+          "练习对文本提出有深度的问题",
+          "使用批注和笔记记录思考"
+        ],
+        tips: "深度阅读如同与作者对话，不仅是接收信息，更是思考和质疑。"
+      }
+    ];
+    
+    // 小学5年级的月度学习计划
+    const primarySchoolYear5 = [
+      {
+        month: 49,
+        title: "批判性阅读深化",
+        goals: [
+          "提高文本分析能力",
+          "学习比较不同文本",
+          "培养文学鉴赏能力"
+        ],
+        tasks: [
+          "分析文章的论点和论据",
+          "比较不同作者对同一主题的处理",
+          "品读经典文学作品，理解作者意图"
+        ],
+        tips: "真正的阅读是与作者进行对话，思考他们的观点并形成自己的见解。"
+      }
+    ];
+    
+    // 小学6年级的月度学习计划
+    const primarySchoolYear6 = [
+      {
+        month: 61,
+        title: "全面复习与巩固",
+        goals: [
+          "系统梳理小学知识体系",
+          "查漏补缺，巩固基础",
+          "建立知识间的联系"
+        ],
+        tasks: [
+          "创建各学科知识结构图",
+          "针对薄弱环节进行重点复习",
+          "进行综合性练习和测试"
+        ],
+        tips: "小学最后一年是巩固基础的关键时期，扎实的基础知识是未来学习的保障。"
+      }
+    ];
+    
+    // 初中1年级的月度学习计划
+    const middleSchoolYear1 = [
+      {
+        month: 73,
+        title: "初中学习适应",
+        goals: [
+          "适应初中学习节奏",
+          "掌握各学科学习方法",
+          "建立良好的学习习惯"
+        ],
+        tasks: [
+          "熟悉各科教材和教学要求",
+          "制定科学的作息和学习计划",
+          "学会做好课堂笔记和课后复习"
+        ],
+        tips: "初中与小学最大的不同是学科更多、内容更深、节奏更快，适应是第一要务。"
+      }
+    ];
+    
+    // 初中2年级的月度学习计划
+    const middleSchoolYear2 = [
+      {
+        month: 85,
+        title: "初二学习规划",
+        goals: [
+          "适应初二学习难度",
+          "制定科学的学习计划",
+          "建立学科优势"
+        ],
+        tasks: [
+          "分析初二各学科重点和难点",
+          "制定个性化学习计划",
+          "根据自身特点确定优势学科"
+        ],
+        tips: "初二是初中的关键年份，学科难度增加，找准自己的优势和不足非常重要。"
+      }
+    ];
+    
+    // 初中3年级的月度学习计划
+    const middleSchoolYear3 = [
+      {
+        month: 97,
+        title: "初三冲刺规划",
+        goals: [
+          "全面规划初三学习",
+          "制定科学的备考计划",
+          "调整心态迎接挑战"
+        ],
+        tasks: [
+          "分析中考要求和考试大纲",
+          "根据个人情况制定详细学习计划",
+          "培养积极乐观的备考心态"
+        ],
+        tips: "初三是决定高中去向的关键一年，科学规划和良好心态同样重要。"
+      }
+    ];
+    
+    // 高中1年级的月度学习计划
+    const highSchoolYear1 = [
+      {
+        month: 109,
+        title: "高中学习规划",
+        goals: [
+          "适应高中学习方式",
+          "了解高考要求和体系",
+          "制定高中三年规划"
+        ],
+        tasks: [
+          "熟悉各学科教材和大纲",
+          "了解高考科目设置和分值比例",
+          "制定高一学年详细学习计划"
+        ],
+        tips: "高中是人生的重要阶段，既要设定长远目标，也要脚踏实地一步步前进。"
+      }
+    ];
+    
+    // 高中2年级的月度学习计划
+    const highSchoolYear2 = [
+      {
+        month: 121,
+        title: "高二学习规划",
+        goals: [
+          "明确高二学习目标",
+          "深化各学科学习",
+          "为高考做战略准备"
+        ],
+        tasks: [
+          "分析高二各学科教学重点",
+          "制定个性化学习计划",
+          "明确优势学科和深入方向"
+        ],
+        tips: "高二是深化知识、培养能力的关键期，既要全面发展，也要有所侧重。"
+      }
+    ];
+    
+    // 高中3年级的月度学习计划
+    const highSchoolYear3 = [
+      {
+        month: 144,
+        title: "高考与志愿填报",
+        goals: [
+          "以最佳状态参加高考",
+          "科学填报志愿",
+          "准备大学生活"
+        ],
+        tasks: [
+          "调整作息，保持良好状态",
+          "了解高考志愿填报策略",
+          "确保清华大学作为第一志愿"
+        ],
+        tips: "十一年的努力即将收获成果，保持平常心，相信自己，向着清华大学勇敢前进！"
+      }
+    ];
+  </script>
 </head>
 <body>
   <h1>我的清华大学学习路径</h1>
@@ -238,11 +513,6 @@
   <button class="back-to-top" onclick="backToTop()" title="返回顶部">↑</button>
   
   <script>
-    // 全局变量存储所有数据
-    let primarySchoolYear1, primarySchoolYear2, primarySchoolYear3, primarySchoolYear4, 
-        primarySchoolYear5, primarySchoolYear6, middleSchoolYear1, middleSchoolYear2, 
-        middleSchoolYear3, highSchoolYear1, highSchoolYear2, highSchoolYear3;
-    
     // 年级和数据变量的映射
     const gradeDataMapping = {
       'primary1': 'primarySchoolYear1',
@@ -305,50 +575,6 @@
       });
     }
     
-    // 动态加载所有JS文件
-    function loadAllScripts() {
-      const scripts = [
-        'months/primary_school_year1.js',
-        'months/primary_school_year2.js',
-        'months/primary_school_year3.js',
-        'months/primary_school_year4.js',
-        'months/primary_school_year5.js',
-        'months/primary_school_year6.js',
-        'months/middle_school_year1.js',
-        'months/middle_school_year2.js',
-        'months/middle_school_year3.js',
-        'months/high_school_year1.js',
-        'months/high_school_year2.js',
-        'months/high_school_year3.js'
-      ];
-      
-      // 使用Promise.all等待所有脚本加载完成
-      const promises = scripts.map(script => {
-        return new Promise((resolve, reject) => {
-          const scriptElement = document.createElement('script');
-          scriptElement.src = script;
-          scriptElement.onload = resolve;
-          scriptElement.onerror = reject;
-          document.head.appendChild(scriptElement);
-        });
-      });
-      
-      // 所有脚本加载完成后，渲染所有年级的内容
-      Promise.all(promises)
-        .then(() => {
-          // 渲染所有年级的内容
-          Object.keys(gradeDataMapping).forEach(gradeId => {
-            renderMonths(gradeId);
-          });
-        })
-        .catch(error => {
-          console.error('Failed to load scripts:', error);
-          document.querySelectorAll('.container').forEach(container => {
-            container.innerHTML = `<div class="error">加载脚本失败：${error.message}</div>`;
-          });
-        });
-    }
-    
     function jumpToStage() {
       const select = document.getElementById('stage-select');
       const stageId = select.value;
@@ -361,8 +587,13 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
-    // 当页面加载时，加载所有脚本
-    document.addEventListener('DOMContentLoaded', loadAllScripts);
+    // 当页面加载时，渲染所有年级的内容
+    document.addEventListener('DOMContentLoaded', function() {
+      // 渲染所有年级的内容
+      Object.keys(gradeDataMapping).forEach(gradeId => {
+        renderMonths(gradeId);
+      });
+    });
   </script>
 </body>
 </html>
