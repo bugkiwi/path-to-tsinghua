@@ -1,2 +1,19 @@
-# 此文件已弃用，改用pages.yml
-# This file is deprecated
+# This file has been deleted
+# 此文件已被删除并禁用
+name: Disabled Workflow
+
+on:
+  # 永远不会触发
+  workflow_dispatch:
+    inputs:
+      disabled:
+        description: 'This workflow is disabled'
+        required: true
+        default: 'disabled'
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No Operation
+        run: echo "This workflow is disabled"
