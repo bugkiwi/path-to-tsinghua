@@ -11,7 +11,8 @@
 ## 如何查看
 
 - [查看演示版](demo.html)
-- [查看完整版](index.html)
+- [查看完整展示版（推荐）](complete.html)
+- [RevealJS 幻灯片版](index.html)
 - [GitHub 代码库](https://github.com/bugkiwi/path-to-tsinghua)
 
 ## 结构
