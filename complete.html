@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>清华大学学习路径 - 完整版</title>
+  <style>
+    body {
+      font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #0066cc;
+      text-align: center;
+    }
+    h2 {
+      color: #0066cc;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+    h3 {
+      margin-top: 15px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .stage-section {
+      margin-bottom: 40px;
+    }
+    .month {
+      flex: 1 0 100%;
+      margin-bottom: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .month h3 {
+      color: #0066cc;
+      margin-top: 0;
+    }
+    .goals {
+      color: #006633;
+    }
+    .tasks {
+      color: #990000;
+    }
+    .tips {
+      color: #663399;
+      font-style: italic;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f0f0ff;
+      border-radius: 5px;
+    }
+    .progress-bar {
+      height: 20px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      margin-top: 15px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: #0066cc;
+      border-radius: 10px;
+    }
+    .navigation {
+      position: sticky;
+      top: 10px;
+      background-color: white;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      z-index: 100;
+    }
+    .navigation select {
+      width: 100%;
+      padding: 5px;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>我的清华大学学习路径</h1>
+  <p style="text-align: center;">从小学1年级到高考的132个月计划</p>
+  
+  <div class="navigation">
+    <select id="stage-select" onchange="jumpToStage()">
+      <option value="">选择学习阶段</option>
+      <option value="primary1">小学1年级</option>
+      <option value="primary2">小学2年级</option>
+      <option value="primary3">小学3年级</option>
+      <option value="primary4">小学4年级</option>
+      <option value="primary5">小学5年级</option>
+      <option value="primary6">小学6年级</option>
+      <option value="middle1">初中1年级</option>
+      <option value="middle2">初中2年级</option>
+      <option value="middle3">初中3年级</option>
+      <option value="high1">高中1年级</option>
+      <option value="high2">高中2年级</option>
+      <option value="high3">高中3年级</option>
+    </select>
+  </div>
+  
+  <!-- 小学1年级 -->
+  <div id="primary1" class="stage-section">
+    <h2>小学1年级</h2>
+    
+    <div class="container">
+      <!-- 第1个月 -->
+      <div class="month">
+        <h3>第1个月：打好学习兴趣基础</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>培养阅读兴趣</li>
+            <li>打好数学思维基础</li>
+            <li>养成良好的学习习惯</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>每天阅读20分钟有趣的儿童读物</li>
+            <li>学习基础加减法，玩数学游戏</li>
+            <li>制定并坚持固定的学习时间表</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：学习应该是快乐的！通过游戏和有趣的活动培养学习兴趣。</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 1%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：1%</div>
+      </div>
+      
+      <!-- 第2个月 -->
+      <div class="month">
+        <h3>第2个月：阅读与写作启蒙</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>提高汉字识字量</li>
+            <li>学习简单的句子表达</li>
+            <li>培养观察能力</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>认识100个常用汉字</li>
+            <li>练习写简单日记，描述每天的事情</li>
+            <li>户外自然观察，并画下所见</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：把识字变成一个探索新世界的游戏，而不是死记硬背。</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 2%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：2%</div>
+      </div>
+      
+      <!-- 第3个月 -->
+      <div class="month">
+        <h3>第3个月：数学思维拓展</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>掌握20以内的加减法</li>
+            <li>认识基本几何形状</li>
+            <li>培养逻辑思维</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>制作数字卡片进行加减法练习</li>
+            <li>收集和分类不同形状的物品</li>
+            <li>玩简单的益智游戏和拼图</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：在日常生活中找数学，比如购物、烹饪时的计算。</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 3%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：3%</div>
+      </div>
+      
+      <!-- 第4个月 -->
+      <div class="month">
+        <h3>第4个月：科学探索启蒙</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>培养科学兴趣</li>
+            <li>了解基本自然现象</li>
+            <li>学习简单实验</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>观察植物生长，记录变化</li>
+            <li>了解天气变化及原因</li>
+            <li>进行简单的水和空气实验</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：培养提问习惯：为什么天会下雨？为什么植物需要阳光？</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 4%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：4%</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 小学2年级 -->
+  <div id="primary2" class="stage-section">
+    <h2>小学2年级</h2>
+    
+    <div class="container">
+      <!-- 第13个月 -->
+      <div class="month">
+        <h3>第13个月：阅读理解深化</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>提高阅读理解能力</li>
+            <li>学习概括段落主旨</li>
+            <li>扩大阅读词汇量</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>每天阅读30分钟，尝试理解文章含义</li>
+            <li>学习提取文章主要信息</li>
+            <li>建立个人词汇本，记录新词</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：阅读后尝试用自己的话复述故事，这是理解的好方法。</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 13%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：13%</div>
+      </div>
+      
+      <!-- 第14个月 -->
+      <div class="month">
+        <h3>第14个月：写作技巧启蒙</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>掌握基本句型结构</li>
+            <li>学习段落组织</li>
+            <li>培养观察描述能力</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>每周写一篇小日记或短文</li>
+            <li>学习使用不同的句型</li>
+            <li>描述具体物品、人物或场景</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：先观察，再思考，最后表达，这是写作的基本步骤。</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 14%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：14%</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 初中1年级 -->
+  <div id="middle1" class="stage-section">
+    <h2>初中1年级</h2>
+    
+    <div class="container">
+      <!-- 第73个月 -->
+      <div class="month">
+        <h3>第73个月：初中学习适应</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>适应初中学习节奏</li>
+            <li>掌握各学科学习方法</li>
+            <li>建立良好的学习习惯</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>熟悉各科教材和教学要求</li>
+            <li>制定科学的作息和学习计划</li>
+            <li>学会做好课堂笔记和课后复习</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：初中与小学最大的不同是学科更多、内容更深、节奏更快，适应是第一要务。</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 73%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：73%</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 高中1年级 -->
+  <div id="high1" class="stage-section">
+    <h2>高中1年级</h2>
+    
+    <div class="container">
+      <!-- 第109个月 -->
+      <div class="month">
+        <h3>第109个月：高中学习规划</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>适应高中学习方式</li>
+            <li>了解高考要求和体系</li>
+            <li>制定高中三年规划</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>熟悉各学科教材和大纲</li>
+            <li>了解高考科目设置和分值比例</li>
+            <li>制定高一学年详细学习计划</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：高中是人生的重要阶段，既要设定长远目标，也要脚踏实地一步步前进。</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 90%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：90%</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 高中3年级 -->
+  <div id="high3" class="stage-section">
+    <h2>高中3年级</h2>
+    
+    <div class="container">
+      <!-- 第144个月 -->
+      <div class="month">
+        <h3>第144个月：高考与志愿填报</h3>
+        <div class="goals">
+          <h4>月度目标：</h4>
+          <ul>
+            <li>以最佳状态参加高考</li>
+            <li>科学填报志愿</li>
+            <li>准备大学生活</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h4>本月任务：</h4>
+          <ul>
+            <li>调整作息，保持良好状态</li>
+            <li>了解高考志愿填报策略</li>
+            <li>确保清华大学作为第一志愿</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：十一年的努力即将收获成果，保持平常心，相信自己，向着清华大学勇敢前进！</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 100%;"></div>
+        </div>
+        <div style="text-align: right; font-size: 0.8em; margin-top: 5px;">学习进度：100%</div>
+      </div>
+    </div>
+  </div>
+  
+  <p style="text-align: center; margin-top: 30px;">
+    <a href="index.md">返回首页</a> | 
+    <a href="https://github.com/bugkiwi/path-to-tsinghua">GitHub 代码库</a>
+  </p>
+  
+  <button class="back-to-top" onclick="backToTop()" title="返回顶部">↑</button>
+  
+  <script>
+    function jumpToStage() {
+      const select = document.getElementById('stage-select');
+      const stageId = select.value;
+      if (stageId) {
+        document.getElementById(stageId).scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    
+    function backToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
