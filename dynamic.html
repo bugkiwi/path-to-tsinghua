@@ -103,6 +103,13 @@
       font-style: italic;
       color: #666;
     }
+    .error {
+      color: #cc0000;
+      padding: 15px;
+      border: 1px solid #ffcccc;
+      background-color: #fff0f0;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -231,40 +238,39 @@
   <button class="back-to-top" onclick="backToTop()" title="返回顶部">↑</button>
   
   <script>
-    // 年级和加载文件的映射
-    const gradeFiles = {
-      'primary1': 'months/primary_school_year1.js',
-      'primary2': 'months/primary_school_year2.js',
-      'primary3': 'months/primary_school_year3.js',
-      'primary4': 'months/primary_school_year4.js',
-      'primary5': 'months/primary_school_year5.js',
-      'primary6': 'months/primary_school_year6.js',
-      'middle1': 'months/middle_school_year1.js',
-      'middle2': 'months/middle_school_year2.js',
-      'middle3': 'months/middle_school_year3.js',
-      'high1': 'months/high_school_year1.js',
-      'high2': 'months/high_school_year2.js',
-      'high3': 'months/high_school_year3.js'
+    // 全局变量存储所有数据
+    let primarySchoolYear1, primarySchoolYear2, primarySchoolYear3, primarySchoolYear4, 
+        primarySchoolYear5, primarySchoolYear6, middleSchoolYear1, middleSchoolYear2, 
+        middleSchoolYear3, highSchoolYear1, highSchoolYear2, highSchoolYear3;
+    
+    // 年级和数据变量的映射
+    const gradeDataMapping = {
+      'primary1': 'primarySchoolYear1',
+      'primary2': 'primarySchoolYear2',
+      'primary3': 'primarySchoolYear3',
+      'primary4': 'primarySchoolYear4',
+      'primary5': 'primarySchoolYear5',
+      'primary6': 'primarySchoolYear6',
+      'middle1': 'middleSchoolYear1',
+      'middle2': 'middleSchoolYear2',
+      'middle3': 'middleSchoolYear3',
+      'high1': 'highSchoolYear1',
+      'high2': 'highSchoolYear2',
+      'high3': 'highSchoolYear3'
     };
     
-    // 全局变量存储所有加载的数据
-    const monthData = {};
-    
-    // 动态加载JavaScript文件
-    function loadScript(url) {
-      return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = url;
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.appendChild(script);
-      });
-    }
-    
     // 渲染月份内容
-    function renderMonths(gradeId, data) {
+    function renderMonths(gradeId) {
       const container = document.getElementById(`${gradeId}-content`);
       container.innerHTML = '';
+      
+      // 获取对应的数据
+      const data = window[gradeDataMapping[gradeId]];
+      
+      if (!data || !Array.isArray(data)) {
+        container.innerHTML = `<div class="error">无法加载数据。请确保JavaScript文件正确加载。</div>`;
+        return;
+      }
       
       data.forEach(month => {
         const monthElement = document.createElement('div');
@@ -299,43 +305,49 @@
       });
     }
     
-    // 加载年级数据
-    async function loadGradeData(gradeId) {
-      try {
-        // 只有第一次加载时才去请求数据
-        if (!monthData[gradeId]) {
-          const response = await fetch(gradeFiles[gradeId]);
-          const jsContent = await response.text();
-          
-          // 执行js代码以获取数据
-          // 创建一个安全的执行环境
-          const moduleObj = {};
-          const func = new Function('module', jsContent);
-          func({exports: moduleObj});
-          
-          // 将得到的数据存储起来
-          const dataVarName = gradeId.includes('primary') ? 'primarySchoolYear' + gradeId.slice(-1) :
-                            gradeId.includes('middle') ? 'middleSchoolYear' + gradeId.slice(-1) :
-                            'highSchoolYear' + gradeId.slice(-1);
-          
-          monthData[gradeId] = moduleObj.exports || window[dataVarName];
-        }
-        
-        // 渲染数据
-        renderMonths(gradeId, monthData[gradeId]);
-      } catch (error) {
-        console.error(`Error loading grade ${gradeId} data:`, error);
-        const container = document.getElementById(`${gradeId}-content`);
-        container.innerHTML = `<div class="error">加载失败：${error.message}</div>`;
-      }
-    }
-    
-    // 当页面加载时，加载所有年级的数据
-    document.addEventListener('DOMContentLoaded', function() {
-      Object.keys(gradeFiles).forEach(gradeId => {
-        loadGradeData(gradeId);
+    // 动态加载所有JS文件
+    function loadAllScripts() {
+      const scripts = [
+        'months/primary_school_year1.js',
+        'months/primary_school_year2.js',
+        'months/primary_school_year3.js',
+        'months/primary_school_year4.js',
+        'months/primary_school_year5.js',
+        'months/primary_school_year6.js',
+        'months/middle_school_year1.js',
+        'months/middle_school_year2.js',
+        'months/middle_school_year3.js',
+        'months/high_school_year1.js',
+        'months/high_school_year2.js',
+        'months/high_school_year3.js'
+      ];
+      
+      // 使用Promise.all等待所有脚本加载完成
+      const promises = scripts.map(script => {
+        return new Promise((resolve, reject) => {
+          const scriptElement = document.createElement('script');
+          scriptElement.src = script;
+          scriptElement.onload = resolve;
+          scriptElement.onerror = reject;
+          document.head.appendChild(scriptElement);
+        });
       });
-    });
+      
+      // 所有脚本加载完成后，渲染所有年级的内容
+      Promise.all(promises)
+        .then(() => {
+          // 渲染所有年级的内容
+          Object.keys(gradeDataMapping).forEach(gradeId => {
+            renderMonths(gradeId);
+          });
+        })
+        .catch(error => {
+          console.error('Failed to load scripts:', error);
+          document.querySelectorAll('.container').forEach(container => {
+            container.innerHTML = `<div class="error">加载脚本失败：${error.message}</div>`;
+          });
+        });
+    }
     
     function jumpToStage() {
       const select = document.getElementById('stage-select');
@@ -348,6 +360,9 @@
     function backToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    
+    // 当页面加载时，加载所有脚本
+    document.addEventListener('DOMContentLoaded', loadAllScripts);
   </script>
 </body>
 </html>
