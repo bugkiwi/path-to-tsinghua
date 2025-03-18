@@ -6,7 +6,58 @@
   <title>我的清华大学学习路径</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/sky.min.css">
-  <link rel="stylesheet" href="css/custom.css">
+  <style>
+    /* 自定义样式 */
+    body {
+      font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+    }
+    
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+      color: #0066cc;
+    }
+    
+    .month-title {
+      color: #0066cc;
+      font-weight: bold;
+    }
+    
+    .goals {
+      color: #006633;
+    }
+    
+    .tasks {
+      color: #990000;
+    }
+    
+    .tips {
+      color: #663399;
+      font-style: italic;
+      font-size: 0.9em;
+    }
+    
+    .progress-marker {
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    
+    .background-primary {
+      background-color: rgba(0, 102, 204, 0.1);
+    }
+    
+    .background-success {
+      background-color: rgba(0, 102, 51, 0.1);
+    }
+    
+    .monthly-slide {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
   <div class="reveal">
@@ -28,18 +79,78 @@
         </ul>
       </section>
 
-      <!-- 月度计划将由JavaScript动态加载 -->
+      <!-- 样例月份 -->
+      <section class="monthly-slide">
+        <h2 class="month-title">第1个月：打好学习兴趣基础</h2>
+        <div class="goals">
+          <h3>月度目标：</h3>
+          <ul>
+            <li>培养阅读兴趣</li>
+            <li>打好数学思维基础</li>
+            <li>养成良好的学习习惯</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h3>本月任务：</h3>
+          <ul>
+            <li>每天阅读20分钟有趣的儿童读物</li>
+            <li>学习基础加减法，玩数学游戏</li>
+            <li>制定并坚持固定的学习时间表</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：学习应该是快乐的！通过游戏和有趣的活动培养学习兴趣。</p>
+        </div>
+        <div class="progress-marker">
+          <p>学习进度：1%</p>
+        </div>
+      </section>
+
+      <!-- 样例月份 -->
+      <section class="monthly-slide">
+        <h2 class="month-title">第2个月：阅读与写作启蒙</h2>
+        <div class="goals">
+          <h3>月度目标：</h3>
+          <ul>
+            <li>提高汉字识字量</li>
+            <li>学习简单的句子表达</li>
+            <li>培养观察能力</li>
+          </ul>
+        </div>
+        <div class="tasks">
+          <h3>本月任务：</h3>
+          <ul>
+            <li>认识100个常用汉字</li>
+            <li>练习写简单日记，描述每天的事情</li>
+            <li>户外自然观察，并画下所见</li>
+          </ul>
+        </div>
+        <div class="tips">
+          <p>小贴士：把识字变成一个探索新世界的游戏，而不是死记硬背。</p>
+        </div>
+        <div class="progress-marker">
+          <p>学习进度：2%</p>
+        </div>
+      </section>
       
       <!-- 结束页 -->
       <section>
         <h2>未来的清华学子</h2>
         <p>梦想从脚踏实地开始</p>
         <p>每一步都带我走向清华园</p>
+        <p>路径已上传GitHub: <a href="https://github.com/bugkiwi/path-to-tsinghua">https://github.com/bugkiwi/path-to-tsinghua</a></p>
       </section>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
-  <script src="js/main.js"></script>
+  <script>
+    // 初始化 Reveal.js
+    Reveal.initialize({
+      center: true,
+      hash: true,
+      transition: 'slide',
+    });
+  </script>
 </body>
 </html>
