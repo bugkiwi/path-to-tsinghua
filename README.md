@@ -10,9 +10,8 @@
 
 ## 如何查看
 
-1. 克隆此仓库
-2. 在浏览器中打开 index.html 文件
-3. 或直接访问发布的GitHub Pages网页
+1. 直接访问GitHub Pages在线版: https://bugkiwi.github.io/path-to-tsinghua/
+2. 或克隆此仓库，在浏览器中打开 index.html 文件
 
 ## 结构
 
