@@ -18,14 +18,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      
       - name: Upload artifact
-        # 将版本从 v1 改为 v2，以避免版本兼容性问题
         uses: actions/upload-pages-artifact@v2
         with:
           path: '.'
+      
       - name: Deploy to GitHub Pages
         id: deployment
-        # 将版本从 v1 改为 v2
         uses: actions/deploy-pages@v2
