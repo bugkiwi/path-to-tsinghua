@@ -1,0 +1,50 @@
+/* 自定义样式 */
+body {
+  font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+  color: #0066cc;
+}
+
+.month-title {
+  color: #0066cc;
+  font-weight: bold;
+}
+
+.goals {
+  color: #006633;
+}
+
+.tasks {
+  color: #990000;
+}
+
+.tips {
+  color: #663399;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.progress-marker {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.background-primary {
+  background-color: rgba(0, 102, 204, 0.1);
+}
+
+.background-success {
+  background-color: rgba(0, 102, 51, 0.1);
+}
+
+.monthly-slide {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
